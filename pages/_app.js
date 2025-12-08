@@ -7,7 +7,7 @@ import Toasts from '../components/Toasts'
 function AppShell({ Component, pageProps }){
   const { toasts } = useApp()
   return (
-    <div className="min-h-screen pb-20">
+    <div className="min-h-screen pb-28 md:pb-20 w-screen overflow-x-hidden">
       <Component {...pageProps} />
       <BottomNav />
       <Toasts toasts={toasts} />
