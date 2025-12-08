@@ -38,4 +38,32 @@ body{
   border-radius: 1rem;
 }
 
+.card{
+  @apply bg-white rounded-xl shadow-lg border transition-transform duration-150;
+}
+.card:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(76,175,80,0.12);
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2.2s infinite;
+}
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.btn-primary {
+  box-shadow: 0 2px 8px rgba(76,175,80,0.10);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.soft-border {
+  border: 1px solid var(--softgray);
+}
+}
+
 .soft-border{ border: 1px solid var(--softgray); }

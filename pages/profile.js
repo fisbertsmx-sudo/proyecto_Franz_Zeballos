@@ -10,15 +10,16 @@ export default function Profile(){
       {user?.loggedIn ? (
         <ProfileStats user={user} />
       ) : (
-        <div className="bg-white p-6 rounded-xl border border-[var(--softgray)] text-center">
+        <div className="bg-white p-6 rounded-xl border border-[var(--softgray)] text-center relative">
+          <img src="/leaf-eco.svg" alt="Ecotruque" className="w-10 h-10 mx-auto mb-2 animate-bounce-slow" />
           <div className="text-2xl font-bold text-green-700 mb-2">Ecotruque</div>
           <div className="mb-3">Visita pública: descubre el impacto de la comunidad.</div>
           <div className="mb-4 grid grid-cols-2 gap-4">
-            <div className="bg-[var(--cream)] p-3 rounded-lg">
+            <div className="bg-[var(--cream)] p-3 rounded-lg shadow-sm">
               <div className="text-sm text-gray-500">kg de basura evitada</div>
               <div className="font-semibold">{user?.kg_saved ?? 0} kg</div>
             </div>
-            <div className="bg-[var(--cream)] p-3 rounded-lg">
+            <div className="bg-[var(--cream)] p-3 rounded-lg shadow-sm">
               <div className="text-sm text-gray-500">Objetos salvados</div>
               <div className="font-semibold">{user?.items_saved ?? 0}</div>
             </div>
