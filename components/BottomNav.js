@@ -3,21 +3,21 @@ import { Home, Search, PlusCircle, Users, User } from 'lucide-react'
 
 export default function BottomNav(){
   return (
-    <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-3 rounded-2xl shadow-lg flex gap-6 items-center z-40">
-      <Link href="/">
-        <div className="flex flex-col items-center text-sm text-gray-700"><Home size={20} /><span>Inicio</span></div>
+    <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-4 rounded-3xl shadow-2xl flex gap-6 items-center z-40 border border-green-100">
+      <Link href="/" className="nav-item text-gray-600 hover:text-green-700">
+        <div className="flex flex-col items-center text-sm"><Home size={20} /><span className="text-xs mt-1">Inicio</span></div>
       </Link>
-      <Link href="/onboarding">
-        <div className="flex flex-col items-center text-sm text-gray-700"><Search size={20} /><span>Buscar</span></div>
+      <Link href="/onboarding" className="nav-item text-gray-600 hover:text-green-700">
+        <div className="flex flex-col items-center text-sm"><Search size={20} /><span className="text-xs mt-1">Buscar</span></div>
       </Link>
-      <Link href="/publish">
-        <div className="flex flex-col items-center text-sm text-green-600"><PlusCircle size={28} /></div>
+      <Link href="/publish" className="nav-item">
+        <div className="flex flex-col items-center text-sm text-green-600 bg-green-50 p-2 rounded-full"><PlusCircle size={28} /></div>
       </Link>
-      <Link href="/social">
-        <div className="flex flex-col items-center text-sm text-gray-700"><Users size={20} /><span>Comunidad</span></div>
+      <Link href="/social" className="nav-item text-gray-600 hover:text-green-700">
+        <div className="flex flex-col items-center text-sm"><Users size={20} /><span className="text-xs mt-1">Comunidad</span></div>
       </Link>
-      <Link href="/profile">
-        <div className="flex flex-col items-center text-sm text-gray-700"><User size={20} /><span>Perfil</span></div>
+      <Link href="/profile" className="nav-item text-gray-600 hover:text-green-700">
+        <div className="flex flex-col items-center text-sm"><User size={20} /><span className="text-xs mt-1">Perfil</span></div>
       </Link>
     </nav>
   )

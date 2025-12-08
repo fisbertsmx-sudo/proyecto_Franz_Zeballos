@@ -17,41 +17,48 @@ html,body,#__next{
 
 body{
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #F5F5DC 0%, #ffffff 50%, #E8F5E9 100%);
   color: #0f172a;
 }
 
 .btn-primary{
-  background-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary) 0%, #66BB6A 100%);
   color: white;
-  padding: .5rem 1rem;
+  padding: .6rem 1.2rem;
   border-radius: .75rem;
   font-weight: 600;
-  transition: transform .12s ease, box-shadow .12s ease;
-  box-shadow: 0 2px 8px rgba(76,175,80,0.10);
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(76,175,80,0.25);
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(46,125,50,0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(76,175,80,0.35);
+  background: linear-gradient(135deg, #45a049 0%, #52a252 100%);
 }
 
 .btn-primary:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .card{
-  @apply bg-white rounded-xl shadow-lg border transition-transform duration-150;
+  @apply bg-white rounded-2xl shadow-lg border-0 transition-all duration-200;
+  border: 1px solid rgba(200, 230, 201, 0.3);
 }
 
 .card:hover{
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(76,175,80,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(76,175,80,0.18);
+  border-color: rgba(76,175,80,0.5);
 }
 
 .hero{
-  background: linear-gradient(90deg, rgba(76,175,80,0.08), rgba(46,125,50,0.04));
-  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(76,175,80,0.15) 0%, rgba(165,214,167,0.08) 100%);
+  border-radius: 2rem;
+  border: 1px solid rgba(200,230,201,0.3);
+  box-shadow: 0 4px 16px rgba(76,175,80,0.08);
 }
 
 .soft-border {
@@ -65,4 +72,15 @@ body{
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
+}
+
+.nav-item {
+  transition: all .2s ease;
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
+.nav-item:hover {
+  background: rgba(76,175,80,0.05);
+  transform: scale(1.05);
 }
