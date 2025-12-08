@@ -8,19 +8,25 @@ export function AppProvider({ children }){
   const [posts, setPosts] = useState([])
   const [user, setUser] = useState(null)
   const [toasts, setToasts] = useState([])
+  const [theme, setTheme] = useState('light')
 
   useEffect(()=>{
     try{
       const p = JSON.parse(localStorage.getItem('products'))
       const ps = JSON.parse(localStorage.getItem('posts'))
       const u = JSON.parse(localStorage.getItem('user'))
+      const t = localStorage.getItem('theme') || 'light'
       setProducts(p && Array.isArray(p) ? p : initialProducts)
       setPosts(ps && Array.isArray(ps) ? ps : initialPosts)
       setUser(u ? {...u, loggedIn: !!u.loggedIn} : {...initialUser, loggedIn: false})
+      setTheme(t)
+      document.documentElement.setAttribute('data-theme', t)
     }catch(e){
       setProducts(initialProducts)
       setPosts(initialPosts)
       setUser({...initialUser, loggedIn: false})
+      setTheme('light')
+      document.documentElement.setAttribute('data-theme', 'light')
     }
   },[])
 
@@ -28,6 +34,15 @@ export function AppProvider({ children }){
   useEffect(()=>{ if(posts.length) localStorage.setItem('posts', JSON.stringify(posts)) },[posts])
   useEffect(()=>{ if(user) localStorage.setItem('user', JSON.stringify(user)) },[user])
   useEffect(()=>{ localStorage.setItem('toasts', JSON.stringify(toasts || [])) },[toasts])
+  
+  useEffect(()=>{
+    localStorage.setItem('theme', theme)
+    document.documentElement.setAttribute('data-theme', theme)
+  },[theme])
+
+  function toggleTheme(){
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
+  }
 
   function addProduct(data){
     const id = Date.now().toString()
@@ -96,7 +111,7 @@ export function AppProvider({ children }){
   }
 
   return (
-    <AppContext.Provider value={{ products, posts, user, addProduct, addPost, toggleSave, requestItem, updateUser, login, logout, toasts, addToast }}>
+    <AppContext.Provider value={{ products, posts, user, addProduct, addPost, toggleSave, requestItem, updateUser, login, logout, toasts, addToast, theme, toggleTheme }}>
       {children}
     </AppContext.Provider>
   )

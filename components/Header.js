@@ -1,9 +1,9 @@
-import { Search } from 'lucide-react'
+import { Search, Sun, Moon } from 'lucide-react'
 import { useApp } from './AppContext'
 import Link from 'next/link'
 
 export default function Header({location='Ciudad', onSearch}){
-  const { user, logout } = useApp()
+  const { user, logout, theme, toggleTheme } = useApp()
   return (
     <header className="px-3 md:px-4 py-3 md:py-5 bg-gradient-to-br from-white via-green-50 to-white shadow-sm border-b border-green-100 w-full">
       <div className="flex items-center justify-between mb-3 md:mb-4 gap-2">
@@ -15,6 +15,13 @@ export default function Header({location='Ciudad', onSearch}){
           <div className="text-xs text-gray-400">📍 {location}</div>
         </div>
         <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+          <button 
+            onClick={toggleTheme}
+            className="p-1.5 md:p-2 rounded-lg border border-green-200 hover:bg-green-50 transition flex-shrink-0 flex items-center justify-center"
+            title={`Cambiar a modo ${theme === 'light' ? 'oscuro' : 'claro'}`}
+          >
+            {theme === 'light' ? <Moon size={18} className="text-gray-700 md:w-5 md:h-5" /> : <Sun size={18} className="text-yellow-400 md:w-5 md:h-5" />}
+          </button>
           {user?.loggedIn ? (
             <>
               <div className="text-right mr-1 md:mr-2 bg-green-50 px-2 md:px-3 py-1 rounded-lg border border-green-200 hidden sm:block">
