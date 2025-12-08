@@ -1,10 +1,12 @@
+const createSvgImage = (color, text) => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='${encodeURIComponent(color)}' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='48' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle' font-family='Arial'%3E${encodeURIComponent(text)}%3C/text%3E%3C/svg%3E`
+
 export const products = [
-  {id: '1', title: 'Bicicleta urbana', condition: 'Usado', price: 120, distance: '2km', image: 'https://via.placeholder.com/600x400/FF6B6B/FFFFFF?text=Bicicleta'},
-  {id: '2', title: 'Máquina de café', condition: 'Nueva', price: 300, distance: '5km', image: 'https://via.placeholder.com/600x400/4ECDC4/FFFFFF?text=Café'},
-  {id: '3', title: 'Silla de madera', condition: 'Usado', price: 45, distance: '1.2km', image: 'https://via.placeholder.com/600x400/95E1D3/FFFFFF?text=Silla'},
-  {id: '4', title: 'Laptop usada', condition: 'Usado', price: 450, distance: '3km', image: 'https://via.placeholder.com/600x400/F38181/FFFFFF?text=Laptop'},
-  {id: '5', title: 'Lámpara LED', condition: 'Nueva', price: 65, distance: '1.5km', image: 'https://via.placeholder.com/600x400/FFD93D/FFFFFF?text=Lámpara'},
-  {id: '6', title: 'Estantería', condition: 'Usado', price: 85, distance: '2.5km', image: 'https://via.placeholder.com/600x400/A8D8EA/FFFFFF?text=Estantería'}
+  {id: '1', title: 'Bicicleta urbana', condition: 'Usado', price: 120, distance: '2km', image: createSvgImage('#FF6B6B', '🚴')},
+  {id: '2', title: 'Máquina de café', condition: 'Nueva', price: 300, distance: '5km', image: createSvgImage('#4ECDC4', '☕')},
+  {id: '3', title: 'Silla de madera', condition: 'Usado', price: 45, distance: '1.2km', image: createSvgImage('#95E1D3', '🪑')},
+  {id: '4', title: 'Laptop usada', condition: 'Usado', price: 450, distance: '3km', image: createSvgImage('#F38181', '💻')},
+  {id: '5', title: 'Lámpara LED', condition: 'Nueva', price: 65, distance: '1.5km', image: createSvgImage('#FFD93D', '💡')},
+  {id: '6', title: 'Estantería', condition: 'Usado', price: 85, distance: '2.5km', image: createSvgImage('#A8D8EA', '📚')}
 ]
 
 export const user = {

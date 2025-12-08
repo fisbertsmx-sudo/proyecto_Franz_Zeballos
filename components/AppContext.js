@@ -31,15 +31,21 @@ export function AppProvider({ children }){
 
   function addProduct(data){
     const id = Date.now().toString()
-    const colors = ['FF6B6B', '4ECDC4', '95E1D3', 'F38181', 'FFD93D', 'A8D8EA']
-    const randomColor = colors[Math.floor(Math.random() * colors.length)]
+    const colors = ['#FF6B6B', '#4ECDC4', '#95E1D3', '#F38181', '#FFD93D', '#A8D8EA']
+    const emojis = ['🚴', '☕', '🪑', '💻', '💡', '📚']
+    const randomIndex = Math.floor(Math.random() * colors.length)
+    const color = colors[randomIndex]
+    const emoji = emojis[randomIndex]
+    
+    const svgImage = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='${encodeURIComponent(color)}' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='72' fill='white' text-anchor='middle' dominant-baseline='middle'%3E${emoji}%3C/text%3E%3C/svg%3E`
+    
     const item = {
       id,
       title: data.title || 'Sin título',
       condition: data.condition || 'Usado',
       price: data.price || 0,
       distance: '0.5km',
-      image: data.image || `https://via.placeholder.com/600x400/${randomColor}/FFFFFF?text=${encodeURIComponent(data.title || 'Producto')}`
+      image: data.image || svgImage
     }
     setProducts(prev=>[item,...prev])
     return item
