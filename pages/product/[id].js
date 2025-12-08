@@ -47,7 +47,5 @@ export default function ProductDetail(){
         ¿Te gustó? <span className="text-green-600">¡Comparte y ayuda a crecer Ecotruque!</span>
       </div>
     </main>
-      </div>
-    </main>
   )
 }

@@ -21,8 +21,6 @@ body{
   color: #0f172a;
 }
 
-.card{ @apply bg-white rounded-xl shadow-sm border; }
-
 .btn-primary{
   background-color: var(--primary);
   color: white;
@@ -30,40 +28,41 @@ body{
   border-radius: .75rem;
   font-weight: 600;
   transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 2px 8px rgba(76,175,80,0.10);
 }
-.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 6px 18px rgba(46,125,50,0.12); }
+
+.btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(46,125,50,0.12);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.card{
+  @apply bg-white rounded-xl shadow-lg border transition-transform duration-150;
+}
+
+.card:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(76,175,80,0.12);
+}
 
 .hero{
   background: linear-gradient(90deg, rgba(76,175,80,0.08), rgba(46,125,50,0.04));
   border-radius: 1rem;
 }
 
-.card{
-  @apply bg-white rounded-xl shadow-lg border transition-transform duration-150;
-}
-.card:hover{
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(76,175,80,0.12);
+.soft-border {
+  border: 1px solid var(--softgray);
 }
 
 .animate-bounce-slow {
   animation: bounce-slow 2.2s infinite;
 }
+
 @keyframes bounce-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-
-.btn-primary {
-  box-shadow: 0 2px 8px rgba(76,175,80,0.10);
-}
-.btn-primary:active {
-  transform: scale(0.98);
-}
-
-.soft-border {
-  border: 1px solid var(--softgray);
-}
-}
-
-.soft-border{ border: 1px solid var(--softgray); }
