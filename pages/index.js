@@ -29,7 +29,7 @@ export default function Home(){
             </div>
           </div>
           <div className="w-40 md:w-56 h-32 md:h-40 bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl soft-border flex items-center justify-center relative shadow-lg flex-shrink-0">
-            <img src="https://images.unsplash.com/photo-1503342452485-86f7f2a1e0a5?auto=format&fit=crop&w=600&q=60" alt="eco" className="w-full h-full object-cover rounded-2xl" />
+            <img src="https://picsum.photos/400/300?random=hero" alt="eco" className="w-full h-full object-cover rounded-2xl" />
             <img src="/leaf-eco.svg" alt="Ecotruque" className="absolute bottom-2 md:bottom-3 right-2 md:right-3 w-8 md:w-12 h-8 md:h-12 animate-bounce-slow drop-shadow-lg" />
           </div>
         </div>

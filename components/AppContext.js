@@ -37,7 +37,7 @@ export function AppProvider({ children }){
       condition: data.condition || 'Usado',
       price: data.price || 0,
       distance: '0.5km',
-      image: data.image || 'https://images.unsplash.com/photo-1526178619724-1d6a3b8d7b7a?auto=format&fit=crop&w=800&q=60'
+      image: data.image || `https://picsum.photos/600/400?random=${id}`
     }
     setProducts(prev=>[item,...prev])
     return item

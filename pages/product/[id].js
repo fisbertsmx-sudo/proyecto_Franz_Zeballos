@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { useApp } from '../../components/AppContext'
 import BackButton from '../../components/BackButton'
 
@@ -7,6 +8,7 @@ export default function ProductDetail(){
   const { id } = router.query
   const { products, requestItem, toggleSave } = useApp()
   const { addToast } = useApp()
+  const [imgError, setImgError] = useState(false)
   const item = (products || []).find(p=>p.id===id) || (products && products[0]) || { title:'Cargando...', image:'' }
 
   async function handleRequest(){
@@ -23,7 +25,20 @@ export default function ProductDetail(){
           <img src="/leaf-eco.svg" alt="Ecotruque" className="w-full h-full animate-bounce-slow" />
         </div>
         <div className="flex-shrink-0 w-full md:w-56 h-40 md:h-44 bg-gray-100 rounded-lg md:rounded-xl overflow-hidden flex items-center justify-center">
-          {item.image && <img src={item.image} className="w-full h-full object-cover rounded-lg md:rounded-xl shadow-md" />}
+          {item.image && !imgError ? (
+            <img 
+              src={item.image} 
+              onError={() => setImgError(true)}
+              className="w-full h-full object-cover rounded-lg md:rounded-xl shadow-md" 
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-5xl mb-2">📦</div>
+                <div className="text-sm text-gray-600">Imagen no disponible</div>
+              </div>
+            </div>
+          )}
         </div>
         <div className="flex-1 flex flex-col justify-between">
           <div>

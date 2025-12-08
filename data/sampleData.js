@@ -1,7 +1,10 @@
 export const products = [
-  {id: '1', title: 'Bicicleta urbana', condition: 'Usado', price: 120, distance: '2km', image: 'https://images.unsplash.com/photo-1517824806708-5f3761f9f716?auto=format&fit=crop&w=800&q=60'},
-  {id: '2', title: 'Máquina de café', condition: 'Nueva', price: 300, distance: '5km', image: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=800&q=60'},
-  {id: '3', title: 'Silla de madera', condition: 'Usado', price: 45, distance: '1.2km', image: 'https://images.unsplash.com/photo-1582582494706-4a6c3a3c3c3a?auto=format&fit=crop&w=800&q=60'}
+  {id: '1', title: 'Bicicleta urbana', condition: 'Usado', price: 120, distance: '2km', image: 'https://picsum.photos/600/400?random=1'},
+  {id: '2', title: 'Máquina de café', condition: 'Nueva', price: 300, distance: '5km', image: 'https://picsum.photos/600/400?random=2'},
+  {id: '3', title: 'Silla de madera', condition: 'Usado', price: 45, distance: '1.2km', image: 'https://picsum.photos/600/400?random=3'},
+  {id: '4', title: 'Laptop usada', condition: 'Usado', price: 450, distance: '3km', image: 'https://picsum.photos/600/400?random=4'},
+  {id: '5', title: 'Lámpara LED', condition: 'Nueva', price: 65, distance: '1.5km', image: 'https://picsum.photos/600/400?random=5'},
+  {id: '6', title: 'Estantería', condition: 'Usado', price: 85, distance: '2.5km', image: 'https://picsum.photos/600/400?random=6'}
 ]
 
 export const user = {
