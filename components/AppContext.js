@@ -31,13 +31,15 @@ export function AppProvider({ children }){
 
   function addProduct(data){
     const id = Date.now().toString()
+    const colors = ['FF6B6B', '4ECDC4', '95E1D3', 'F38181', 'FFD93D', 'A8D8EA']
+    const randomColor = colors[Math.floor(Math.random() * colors.length)]
     const item = {
       id,
       title: data.title || 'Sin título',
       condition: data.condition || 'Usado',
       price: data.price || 0,
       distance: '0.5km',
-      image: data.image || `https://picsum.photos/600/400?random=${id}`
+      image: data.image || `https://via.placeholder.com/600x400/${randomColor}/FFFFFF?text=${encodeURIComponent(data.title || 'Producto')}`
     }
     setProducts(prev=>[item,...prev])
     return item
