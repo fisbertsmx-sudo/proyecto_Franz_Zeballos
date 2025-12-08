@@ -23,29 +23,29 @@ export default function AuthForm(){
   }
 
   return (
-    <div className="p-6">
+    <div className="p-3 md:p-6">
       <div className="mb-4">
-        <input value={name} onChange={e=>setName(e.target.value)} className="w-full px-4 py-2 rounded-lg border border-[var(--softgray)]" placeholder="Nombre" />
+        <input value={name} onChange={e=>setName(e.target.value)} className="w-full px-3 md:px-4 py-2 rounded-lg border border-[var(--softgray)] text-sm md:text-base" placeholder="Nombre" />
       </div>
       <div className="mb-4">
-        <input className="w-full px-4 py-2 rounded-lg border border-[var(--softgray)]" placeholder="Correo o teléfono" />
+        <input className="w-full px-3 md:px-4 py-2 rounded-lg border border-[var(--softgray)] text-sm md:text-base" placeholder="Correo o teléfono" />
       </div>
       <div className="mb-4">
-        <div className="text-sm text-gray-600 mb-2">Selecciona tus intereses</div>
+        <div className="text-xs md:text-sm text-gray-600 mb-2">Selecciona tus intereses</div>
         <div className="flex flex-wrap gap-2">
           {interests.map(i=> (
-            <button key={i} onClick={()=>toggle(i)} className={`px-3 py-1 rounded-full border ${selected.includes(i)? 'bg-[var(--primary)] text-white' : 'bg-white'}`}>{i}</button>
+            <button key={i} onClick={()=>toggle(i)} className={`px-2 md:px-3 py-1 rounded-full border text-xs md:text-sm transition-colors ${selected.includes(i)? 'bg-[var(--primary)] text-white' : 'bg-white'}`}>{i}</button>
           ))}
         </div>
       </div>
-      <div className="flex gap-2">
-        <button onClick={createAccount} className="btn-primary flex-1">Crear cuenta</button>
-        <button className="flex-1 px-4 py-2 rounded-lg border">Iniciar sesión</button>
+      <div className="flex gap-2 flex-col sm:flex-row">
+        <button onClick={createAccount} className="btn-primary flex-1 text-sm md:text-base py-2 md:py-2">Crear cuenta</button>
+        <button className="flex-1 px-3 md:px-4 py-2 rounded-lg border text-sm md:text-base">Iniciar sesión</button>
       </div>
-      <div className="mt-4 text-center text-sm text-gray-500">O iniciar con</div>
-      <div className="flex gap-2 mt-2">
-        <button className="flex-1 px-3 py-2 rounded-lg border">Google</button>
-        <button className="flex-1 px-3 py-2 rounded-lg border">Teléfono</button>
+      <div className="mt-4 text-center text-xs md:text-sm text-gray-500">O iniciar con</div>
+      <div className="flex gap-2 mt-2 flex-col sm:flex-row">
+        <button className="flex-1 px-3 py-2 rounded-lg border text-xs md:text-sm">Google</button>
+        <button className="flex-1 px-3 py-2 rounded-lg border text-xs md:text-sm">Teléfono</button>
       </div>
     </div>
   )
