@@ -17,8 +17,38 @@ html,body,#__next{
 
 body{
   font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: linear-gradient(135deg, #F5F5DC 0%, #ffffff 50%, #E8F5E9 100%);
-  color: #0f172a;
+  background: radial-gradient(ellipse at 20% 50%, rgba(76,175,80,0.3) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(56,142,60,0.2) 0%, transparent 50%),
+              radial-gradient(ellipse at 40% 20%, rgba(102,187,106,0.15) 0%, transparent 50%),
+              linear-gradient(135deg, #0d3d1a 0%, #1a5c2a 25%, #0f4620 50%, #1d7a3a 75%, #0d3d1a 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 50px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 10px, #eee, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 .btn-primary{
