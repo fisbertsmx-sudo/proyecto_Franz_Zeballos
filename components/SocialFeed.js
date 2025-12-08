@@ -4,11 +4,13 @@ import { useApp } from './AppContext'
 export default function SocialFeed(){
   const { posts, addPost } = useApp()
   const [text, setText] = useState('')
+  const { addToast } = useApp()
 
   function create(){
     if(!text.trim()) return
     addPost(text.trim())
     setText('')
+    addToast('Post creado', { type: 'info' })
   }
 
   return (

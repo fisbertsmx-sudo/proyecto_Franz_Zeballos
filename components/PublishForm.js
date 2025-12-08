@@ -10,10 +10,12 @@ export default function PublishForm(){
   const [price, setPrice] = useState('')
   const { addProduct } = useApp()
   const router = useRouter()
+  const { addToast } = useApp()
 
   function publish(){
-    if(!title) return alert('Añade un título')
+    if(!title) return addToast('Añade un título', { type: 'error' })
     const p = addProduct({ title, description, category, price: Number(price) || 0 })
+    addToast('Artículo publicado', { type: 'info' })
     router.push('/')
   }
 

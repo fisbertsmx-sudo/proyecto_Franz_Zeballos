@@ -7,6 +7,7 @@ export function AppProvider({ children }){
   const [products, setProducts] = useState([])
   const [posts, setPosts] = useState([])
   const [user, setUser] = useState(null)
+  const [toasts, setToasts] = useState([])
 
   useEffect(()=>{
     try{
@@ -26,6 +27,7 @@ export function AppProvider({ children }){
   useEffect(()=>{ if(products.length) localStorage.setItem('products', JSON.stringify(products)) },[products])
   useEffect(()=>{ if(posts.length) localStorage.setItem('posts', JSON.stringify(posts)) },[posts])
   useEffect(()=>{ if(user) localStorage.setItem('user', JSON.stringify(user)) },[user])
+  useEffect(()=>{ localStorage.setItem('toasts', JSON.stringify(toasts || [])) },[toasts])
 
   function addProduct(data){
     const id = Date.now().toString()
@@ -75,8 +77,18 @@ export function AppProvider({ children }){
     return loggedOut
   }
 
+  function addToast(message, opts={ type: 'info', duration: 3500 }){
+    const id = Date.now().toString()
+    const t = { id, message, type: opts.type || 'info' }
+    setToasts(prev => [t, ...prev])
+    if(opts.duration !== 0){
+      setTimeout(()=> setToasts(prev => prev.filter(x=>x.id!==id)), opts.duration || 3500)
+    }
+    return id
+  }
+
   return (
-    <AppContext.Provider value={{ products, posts, user, addProduct, addPost, toggleSave, requestItem, updateUser, login, logout }}>
+    <AppContext.Provider value={{ products, posts, user, addProduct, addPost, toggleSave, requestItem, updateUser, login, logout, toasts, addToast }}>
       {children}
     </AppContext.Provider>
   )

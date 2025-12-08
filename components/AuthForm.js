@@ -9,6 +9,7 @@ export default function AuthForm(){
   const [name, setName] = useState('')
   const { updateUser } = useApp()
   const router = useRouter()
+  const { addToast } = useApp()
 
   const toggle = (i)=>{
     setSelected(prev => prev.includes(i) ? prev.filter(x=>x!==i) : [...prev, i])
@@ -17,6 +18,7 @@ export default function AuthForm(){
   function createAccount(){
     const payload = { name: name || 'Usuario', interests: selected }
     updateUser(payload)
+    addToast('Cuenta creada', { type: 'info' })
     router.push('/')
   }
 
