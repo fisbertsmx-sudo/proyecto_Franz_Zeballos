@@ -1,4 +1,4 @@
-# proyecto_Franz_Zeballos
+# Ecotruque
 
 Protótipo de alta fidelidad de un marketplace de economía circular.
 

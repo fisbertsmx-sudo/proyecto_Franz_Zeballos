@@ -11,6 +11,7 @@ export default function Profile(){
         <ProfileStats user={user} />
       ) : (
         <div className="bg-white p-6 rounded-xl border border-[var(--softgray)] text-center">
+          <div className="text-2xl font-bold text-green-700 mb-2">Ecotruque</div>
           <div className="mb-3">Visita pública: descubre el impacto de la comunidad.</div>
           <div className="mb-4 grid grid-cols-2 gap-4">
             <div className="bg-[var(--cream)] p-3 rounded-lg">

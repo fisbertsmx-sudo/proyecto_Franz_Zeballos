@@ -13,17 +13,23 @@ export default function Home(){
     <main className="max-w-2xl mx-auto pt-6">
       <Header onSearch={setQ} />
       <section className="px-4">
-        <div className="hero p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
+        <div className="hero p-6 mb-6 flex flex-col md:flex-row items-center gap-6 relative">
+          <div className="absolute -top-8 left-6 w-16 h-16 hidden md:block">
+            <img src="/leaf-eco.svg" alt="Ecotruque" className="w-full h-full animate-bounce-slow" />
+          </div>
           <div className="flex-1">
-            <h1 className="text-3xl font-bold mb-2">Marketplace Circular</h1>
-            <p className="text-gray-600 mb-4">Comparte, intercambia y reutiliza con tu comunidad. Gana créditos y sube de nivel ayudando al planeta.</p>
+            <h1 className="text-3xl font-bold mb-2 flex items-center gap-2">
+              <img src="/leaf-eco.svg" alt="Ecotruque" className="w-7 h-7 inline-block md:hidden mr-1" /> Ecotruque
+            </h1>
+            <p className="text-gray-600 mb-4">Ecotruque: comparte, intercambia y reutiliza con tu comunidad. Gana créditos y sube de nivel ayudando al planeta.</p>
             <div className="flex gap-3">
               <a href="/auth" className="btn-primary">Crear cuenta</a>
               <button onClick={()=> document.getElementById('main-search')?.focus()} className="px-4 py-2 rounded-lg border">Explorar</button>
             </div>
           </div>
-          <div className="w-48 h-36 bg-white rounded-xl soft-border flex items-center justify-center">
+          <div className="w-48 h-36 bg-white rounded-xl soft-border flex items-center justify-center relative">
             <img src="https://images.unsplash.com/photo-1503342452485-86f7f2a1e0a5?auto=format&fit=crop&w=600&q=60" alt="eco" className="w-full h-full object-cover rounded-xl" />
+            <img src="/leaf-eco.svg" alt="Ecotruque" className="absolute bottom-2 right-2 w-10 h-10 animate-bounce-slow" />
           </div>
         </div>
       </section>

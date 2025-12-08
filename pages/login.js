@@ -17,7 +17,8 @@ export default function Login(){
 
   return (
     <main className="max-w-md mx-auto pt-12 p-4">
-      <h2 className="text-2xl font-bold mb-4">Iniciar sesión</h2>
+      <h2 className="text-2xl font-bold mb-2">Ecotruque</h2>
+      <div className="text-lg text-gray-600 mb-4">Iniciar sesión</div>
       <form onSubmit={handleLogin} className="bg-white p-4 rounded-xl border border-[var(--softgray)]">
         <div className="mb-3">
           <input value={email} onChange={e=>setEmail(e.target.value)} placeholder="Correo electrónico" className="w-full px-4 py-2 rounded-lg border" />
